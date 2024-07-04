@@ -10,11 +10,11 @@ from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, GoogleGenerativeAI
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
+import os;
 
-load_dotenv()
-
-API_KEY = "AIzaSyDGiUpEfCFQZM8AB0int3_mkBIkiGGEwK0"
-llm = GoogleGenerativeAI(model="models/text-bison-001", google_api_key=API_KEY, temperature=0.7, max_output_tokens=1000)
+load_dotenv('.env')
+API_KEY = os.environ['API_KEY']
+llm = GoogleGenerativeAI(model="models/text-bison-001", google_api_key=API_KEY, temperature=1, max_output_tokens=1000)
 
 st.title("News Report Research")
 st.sidebar.title("News Article URLs")
